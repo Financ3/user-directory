@@ -1,37 +1,52 @@
+import React, {Component} from 'react';
+import data from './Modules/data';
+import Card from './Components/Card';
+import Next from './Components/Next';
+import Previous from './Components/Previous';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-          <header><h2>Home</h2></header>
-          <section className="main-view">
-            <section className="card">
-              <div id="counter">x/x</div>
-              <h2>NamePlaceholder</h2>
-              <ul>
-                <li>From: placholderLocation</li>
-                <li>Job Title: placholderTitle</li>
-                <li>Employer: placholderEmployer</li>
-              </ul>
-              <h3>Favorite Movies:</h3>
-              <ul id="moviesList">
-                <li>1: placholderMovie1</li>
-                <li>2: placholderMovie2</li>
-                <li>3: placholderMovie3</li>
-              </ul>
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      //data fields required to display/track the card details
+      dataArray: data,
+      currentIndex: 0,
+      totalIndices: data.length,
+    }
+  }
+
+  updateIndex = (val) => {
+    this.setState({currentIndex: val});
+  }
+
+  render() {
+    return (
+      <div className="App">
+            <header><h2>Home</h2></header>
+            <section className="main-view">
+              <Card 
+                dataArray={this.state.dataArray} 
+                currentIndex={this.state.currentIndex}/>
+              <section id="buttonsContainer">
+                <Previous 
+                  updateIndex={this.updateIndex}
+                  currentIndex={this.state.currentIndex}
+                  dataArray={this.state.dataArray}/>
+                <div className="editDeleteNewContainer">
+                  <button id="edit">Edit</button>
+                  <button id="delete">Delete</button>
+                  <button id="new">New</button>
+                </div>
+                <Next 
+                  updateIndex={this.updateIndex}
+                  currentIndex={this.state.currentIndex}
+                  dataArray={this.state.dataArray}/>
+              </section>
             </section>
-            <section id="buttonsContainer">
-              <div className="previous">&#60;Previous</div>
-              <div className="editDeleteNewContainer">
-                <button id="edit">Edit</button>
-                <button id="delete">Delete</button>
-                <button id="new">New</button>
-              </div>
-              <div className="next">Next&#62;</div>
-            </section>
-          </section>
-    </div>
-  );
+      </div>
+    )
+  };
 }
 
 export default App;
