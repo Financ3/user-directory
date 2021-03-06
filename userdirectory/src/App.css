@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style: none;
 }
 
 body {
@@ -57,7 +58,7 @@ body {
             margin: 15px 0px;
           }
 
-          #counter {
+          .counter {
             float: right;
             font-size: x-large;
           }
@@ -107,3 +108,81 @@ body {
               cursor: pointer;
             }
 
+
+
+
+
+  .modalButtonContainer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    margin-bottom: 20px;
+    padding-right: 40px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+    .modalButtonContainer button {
+      height: 35px;
+      width: 100px;
+      border-radius: 20px;
+      background-color: #34A5DA;
+      box-shadow: 0px 0px 0px transparent;
+      border: 1px solid transparent;
+      text-shadow: 0px 0px 0px transparent;
+      color: black;
+    }
+
+    .modalButtonContainer button:hover {
+      cursor: pointer;
+    }
+
+
+    /* Code for the hidden modal for the edit */
+#editCardModal {
+  display: none;
+  background-color: #EBEBEB;
+  color: black;
+  position: fixed;
+  padding: 5px 20px;
+  width: 800px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -400px;
+}
+
+/* Code for the hidden modal for the ADD */
+#addCardModal {
+  display: none;
+  background-color: #EBEBEB;
+  color: black;
+  position: fixed;
+  padding: 5px 20px;
+  width: 800px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -400px;
+}
+
+/* Code for the hidden modal for the DELETE */
+  #deleteCardModal {
+    display: none;
+    background-color: #EBEBEB;
+    color: black;
+    position: fixed;
+    padding: 5px 20px;
+    width: 800px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -400px;
+  }
+
+  #confirmDeletion {
+    width: 250px;
+  }
